@@ -55,11 +55,8 @@ BOOL WINAPI PeekMessageHook(LPMSG msMsg, HWND hWnd, UINT uMsgFilterMin, UINT uMs
 {
 	if (!bCanExit)
 	{
-		msMsg->message = NULL;
-		msMsg->wParam = NULL;
-		msMsg->lParam = NULL;
-
 		bCanExit = true;
+		return NULL;
 	}
 
 	return OrigPeekMessage(msMsg, hWnd, uMsgFilterMin, uMsgFilterMax, uMsgRemove);
